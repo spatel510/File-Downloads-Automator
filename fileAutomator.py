@@ -65,7 +65,7 @@ class MoverHandler(FileSystemEventHandler):
     def check_audio_files(self, entry, name):  # * Checks all Audio Files
         for audio_extension in audio_extensions:
             if name.endswith(audio_extension) or name.endswith(audio_extension.upper()):
-                if entry.stat().st_size < 10_000_000 or "SFX" in name:  # ? 10Megabytes
+                if entry.stat().st_size < 10_000_000 or "SFX" in name:  # ?10Megabytes
                     dest = dest_dir_sfx
                 else:
                     dest = dest_dir_music
@@ -78,13 +78,13 @@ class MoverHandler(FileSystemEventHandler):
                 move_file(dest_dir_video, entry, name)
                 logging.info(f"Moved video file: {name}")
 
-    def check_image_files(self, entry, name):  # * Checks all Image Files
+    def check_image_files(self, entry, name):  # *Checks all Image Files
         for image_extension in image_extensions:
             if name.endswith(image_extension) or name.endswith(image_extension.upper()):
                 move_file(dest_dir_image, entry, name)
                 logging.info(f"Moved image file: {name}")
 
-    def check_document_files(self, entry, name):  # * Checks all Document Files
+    def check_document_files(self, entry, name):  # *Checks all Document Files
         for documents_extension in document_extensions:
             if name.endswith(documents_extension) or name.endswith(documents_extension.upper()):
                 move_file(dest_dir_documents, entry, name)
